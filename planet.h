@@ -12,6 +12,7 @@ class Planet {
         
     public:
         //Constructors
+        Planet();
         Planet(std::string a);
             
         //Accessors
