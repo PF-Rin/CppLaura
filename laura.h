@@ -2,6 +2,9 @@
 //Code by Ryan Torrington-Smith
 //Header containing data for most operations
 
+#ifndef LAURA_H_
+#define LAURA_H_
+
 #include <iostream>
 
 struct Movement {
@@ -31,6 +34,7 @@ struct Electricity {
     double maximum_charge, charge_remaining, voltage, amperage;
 };
 
+#endif
 /*
 class Planet {
     private:
