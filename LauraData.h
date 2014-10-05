@@ -5,14 +5,16 @@
 #include <iostream>
 
 struct Movement {
-    double speed, acceleration, delta_x, delta_y, delta_z, delta_delta_x, delta_delta_y, delta_delta_z;
+    //double speed, acceleration, delta_x, delta_y, delta_z, delta_delta_x, delta_delta_y, delta_delta_z;
+    double speed, acceleration, d_x, d_y, d_z, d2_x, d2_y, d2_z;
     double current_x, current_y, current_z;
     int rudder_angle, engine_percentage, center_pod_percentage;
     
 };
 
 struct Trim {
-    double aft_trim, fore_trim, aft_trim_delta, fore_trim_delta;
+    //double aft_trim, fore_trim, aft_trim_delta, fore_trim_delta;
+    double aft_trim, fore_trim, d_aft_trim, d_fore_trim;
 };
 
 struct Combat {
@@ -29,19 +31,22 @@ struct Electricity {
     double maximum_charge, charge_remaining, voltage, amperage;
 };
 
+/*
 class Planet {
     private:
-        int gravity;
+        //int gravity;
+        float gravity;
         double water_temperature_modifier;
         std::string file_name, planet_name;
         
-        public:
-            //Constructor
-            Planet(std::string file_name);
+    public:
+        //Constructors
+        Planet(std::string a);
             
-            //Accessors
-            //Mutators
-            //Deconstructor
+        //Accessors
+        //Mutators
+        //Deconstructor
+        ~Planet();
 };
 
 class Submarine {
@@ -55,11 +60,13 @@ class Submarine {
         Vessel vessel_stats;
         Electricity vessel_electric_readings;
         
-        public:
-            //Constructor
-            Submarine(std::string submarine_name);
-            
-            //Accessors
-            //Mutators
-            //Deconstructor
+    public:
+        //Constructors
+        Submarine(std::string submarine_name);
+        
+        //Accessors
+        //Mutators
+        //Deconstructor
+        ~Submarine();
 };
+*/
