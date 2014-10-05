@@ -17,6 +17,7 @@ class Submarine {
         
     public:
         //Constructors
+        Submarine();
         Submarine(std::string submarine_name);
         
         //Accessors
