@@ -1,5 +1,5 @@
 //Laura software for OCESS
-//Code by Ryan Torrington-Smith
+//Code by Ryan Torrington-Smith and (Partially) by Spencer Whitehead
 //Main program
 
 #include <iostream>
