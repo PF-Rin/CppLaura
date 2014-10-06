@@ -1,15 +1,29 @@
-#define pootis iostream
+#include <iostream>
 
-#include <pootis>
+#define pootis std
+using namespace pootis;
 
+#undef pootis
 #define pootis int main () {
 
 pootis
 
-#define pootis std::cout << "Hello World" << std::endl;
+#undef pootis
+#define pootis cout << "Hello World" << endl;
 
 pootis
 
+#undef pootis
+#define pootis system("pause");
+
+pootis
+
+#undef pootis
+#define pootis return 0;
+
+pootis 
+
+#undef pootis
 #define pootis }
 
 pootis
