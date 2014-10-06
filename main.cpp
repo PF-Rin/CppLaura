@@ -31,9 +31,16 @@ int main() {
 	install_sound(MIDI_AUTODETECT, DIGI_AUTODETECT, NULL);
 	set_color_depth(desktop_color_depth());
 	set_gfx_mode(GFX_AUTODETECT_WINDOWED, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
-	buffer = create_bitmap(SCREEN_W, SCREEN_H)
-	//textprintf_ex(screen, font, 50, 50, makecol(255, 0, 0), -1, "Compile Sucessful");
-	//Sleep(10000);
+	buffer = create_bitmap(SCREEN_W, SCREEN_H);
+	
+	textprintf_ex(screen, font, 100, 100, makecol(0, 200, 250), -1, "Initializing Remote Link...");
+	Sleep(2000);
+	textprintf_ex(screen, font, 100, 140, makecol(0, 200, 250), -1, "Remote Link Established");
+	Sleep(100);
+	textprintf_ex(screen, font, 100, 180, makecol(0, 200, 250), -1, "Engaging Remote Control...");
+	Sleep(1400);
+	textprintf_ex(screen, font, 100, 220, makecol(0, 200, 250), -1, "Control of Laura MK III Sucessfully Transfered");
+	Sleep(2000);
 	
 	while(!key[KEY_ESC]) {
 		while(ticks == 0)

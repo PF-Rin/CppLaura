@@ -1,7 +1,7 @@
 #include "submarine.h"
 
 Submarine::Submarine() {
-  //Iniziationsoaitasnlndaudujsfrhoweanfj.dcnsxz,  
+  //Iniziations  
 }
 
 Submarine::Submarine(std::string submarine_name) {
