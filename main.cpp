@@ -42,6 +42,20 @@ int main() {
 	textprintf_ex(screen, font, 100, 220, makecol(0, 200, 250), -1, "Control of Laura MK III Sucessfully Transfered");
 	Sleep(2000);
 	
+	/*
+	Example of what you could do (This may or may not work, if it doesn't, just remove 
+	the last period at the end of each text_length command)
+	
+	textprintf_ex(screen, font, 100, 100, makecol(0, 200, 250), -1, "Initializing Remote Link");
+	Sleep(1000);
+	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Link."), 100, makecol(0, 200, 250), -1, ".");
+	Sleep(500);
+	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Link.."), 100, makecol(0, 200, 250), -1, ".");
+	Sleep(500);
+	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Link..."), 100, makecol(0, 200, 250), -1, ".");
+	Sleep(1000);
+	*/
+
 	while(!key[KEY_ESC]) {
 		while(ticks == 0)
 			rest(1);
