@@ -1,3 +1,4 @@
+#include <string>
 #include "submarine.h"
 
 Submarine::Submarine() {
@@ -5,5 +6,7 @@ Submarine::Submarine() {
 }
 
 Submarine::Submarine(std::string submarine_name) {
-  //Initializations and whatever goes here
+    vessel_stats.name = submarine_name;
+    std::cout << vessel_stats.name << std::endl;
+    
 }

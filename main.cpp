@@ -33,28 +33,29 @@ int main() {
 	set_gfx_mode(GFX_AUTODETECT_WINDOWED, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
 	buffer = create_bitmap(SCREEN_W, SCREEN_H);
 	
-	textprintf_ex(screen, font, 100, 100, makecol(0, 200, 250), -1, "Initializing Remote Link...");
-	Sleep(2000);
-	textprintf_ex(screen, font, 100, 140, makecol(0, 200, 250), -1, "Remote Link Established");
-	Sleep(100);
-	textprintf_ex(screen, font, 100, 180, makecol(0, 200, 250), -1, "Engaging Remote Control...");
-	Sleep(1400);
-	textprintf_ex(screen, font, 100, 220, makecol(0, 200, 250), -1, "Control of Laura MK III Sucessfully Transfered");
-	Sleep(2000);
-	
-	/*
-	Example of what you could do (This may or may not work, if it doesn't, just remove 
-	the last period at the end of each text_length command)
-	
 	textprintf_ex(screen, font, 100, 100, makecol(0, 200, 250), -1, "Initializing Remote Link");
 	Sleep(1000);
+	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Lin"), 100, makecol(0, 200, 250), -1, ".");
+	Sleep(500);
+	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Link"), 100, makecol(0, 200, 250), -1, ".");
+	Sleep(500);
 	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Link."), 100, makecol(0, 200, 250), -1, ".");
-	Sleep(500);
-	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Link.."), 100, makecol(0, 200, 250), -1, ".");
-	Sleep(500);
-	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Link..."), 100, makecol(0, 200, 250), -1, ".");
 	Sleep(1000);
-	*/
+	textprintf_ex(screen, font, 100, 140, makecol(0, 200, 250), -1, "Remote Link Established");
+	Sleep(1000);
+	textprintf_ex(screen, font, 100, 180, makecol(0, 200, 250), -1, "Engaging Remote Control");
+	Sleep(500);
+	textprintf_ex(screen, font, 100 + text_length(font, "Engaging Remote Control"), 180, makecol(0, 200, 250), -1, ".");
+	Sleep(500);
+	textprintf_ex(screen, font, 100 + text_length(font, "Engaging Remote Control."), 180, makecol(0, 200, 250), -1, ".");
+	Sleep(500);
+	textprintf_ex(screen, font, 100 + text_length(font, "Engaging Remote Control.."), 180, makecol(0, 200, 250), -1, ".");
+	Sleep(1000);
+	textprintf_ex(screen, font, 100, 220, makecol(0, 200, 250), -1, "Control of Laura MK IV Sucessfully Transfered");
+	Sleep(2000);
+	
+	Submarine laura("Laura MK IV");
+	
 
 	while(!key[KEY_ESC]) {
 		while(ticks == 0)

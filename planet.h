@@ -13,7 +13,7 @@ class Planet {
     public:
         //Constructors
         Planet();
-        Planet(std::string a);
+        Planet(std::string);
             
         //Accessors
         //Mutators

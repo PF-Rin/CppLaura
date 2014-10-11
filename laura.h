@@ -7,6 +7,8 @@
 
 #include <iostream>
 
+#pragma comment(lib, "alld.lib")
+
 struct Movement {
     double speed, acceleration, d_x, d_y, d_z, d2_x, d2_y, d2_z;
     double current_x, current_y, current_z;
@@ -25,7 +27,7 @@ struct Combat {
 struct Vessel {
     bool can_submerge, has_generator;
     int vessel_class, generator_type;
-    std::string vessel_name;
+    std::string name;
 };
 
 struct Electricity {
