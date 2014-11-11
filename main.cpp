@@ -54,7 +54,7 @@ int main() {
 	textprintf_ex(screen, font, 100, 220, makecol(0, 200, 250), -1, "Control of Laura MK IV Sucessfully Transfered");
 	Sleep(2000);
 	
-	Submarine laura("Laura MK IV");
+	Submarine laura('L');
 	
 
 	while(!key[KEY_ESC]) {
