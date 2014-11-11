@@ -40,6 +40,13 @@ int main(int argc, char *argv[]) {
 		int rcon_lvl = 0;
 	#endif 
 
+	target_window = new xSDL_Window("LAURA", SCREEN_WIDTH, SCREEN_HEIGHT,
+	#ifdef FULLSCREEN
+		true
+	#else
+		false
+	#endif
+	);
 
 	//Something definitely has to be changed for this to work with xSDL, not really sure what.
 	/*textprintf_ex(screen, font, 100, 100, makecol(0, 200, 250), -1, "Initializing Remote Link");
