@@ -2,38 +2,47 @@
 //Code by Ryan Torrington-Smith and (Partially) by Spencer Whitehead
 //Main program
 
-#include <iostream>
-#include <allegro.h>
-#include <winalleg.h>
-#include "laura.h"
-#include "submarine.h"
-#include "planet.h"
+#include "main.h"
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 600
-#define FPS 50
+#include "xSDL/xSDL_bitmap.h"
+#include "xSDL/xSDL_allegro_wrapper.h"
 
-BITMAP *buffer;
-volatile int ticks = 0;
+xSDL_Window *target_window;
 
-void ticker() {
-    ticks++;
-}
+#define WIN32_LEAN_AND_MEAN
+#define BITMAP WINDOWS_BITMAP
+#include <windows.h>
+#define WINDOWS_RGB(r,g,b) ((COLORREF)(((BYTE)(r)|((WORD)((BYTE)(g))<<8))|(((DWORD)(BYTE)(b))<<16)))
+#undef BITMAP
+
+#define OFFLINE
+//#define FULLSCREEN
 
 void update();
 void draw();
 
-int main() {
-	allegro_init();
-	install_int_ex(ticker, BPS_TO_TIMER(FPS));
-	install_keyboard();
-	install_timer();
-	install_sound(MIDI_AUTODETECT, DIGI_AUTODETECT, NULL);
-	set_color_depth(desktop_color_depth());
-	set_gfx_mode(GFX_AUTODETECT_WINDOWED, SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0);
-	buffer = create_bitmap(SCREEN_W, SCREEN_H);
-	
-	textprintf_ex(screen, font, 100, 100, makecol(0, 200, 250), -1, "Initializing Remote Link");
+int main(int argc, char *argv[]) {
+	#ifndef OFFLINE
+		std::ifstream inFile ("serverLocation.txt");
+		std::string serverComputer;
+		std::getline(inFile, serverComputer);
+		inFile.close();
+		serverComputer += "@spacesimServer";
+		char *databaseName = (char*) serverComputer.c_str();
+		try {
+			con.Connect(databaseName, "root", "isotope", SA_MySQL_Client);
+		} catch(SAException &x) {
+			std::cout << "Error: " << x.ErrText() << std::endl;
+			system("pause");
+			exit(1);
+		}
+		int radPC = 0;
+		int rcon_lvl = 0;
+	#endif 
+
+
+	//Something definitely has to be changed for this to work with xSDL, not really sure what.
+	/*textprintf_ex(screen, font, 100, 100, makecol(0, 200, 250), -1, "Initializing Remote Link");
 	Sleep(1000);
 	textprintf_ex(screen, font, 100 + text_length(font, "Intitializing Remote Lin"), 100, makecol(0, 200, 250), -1, ".");
 	Sleep(500);
@@ -53,7 +62,7 @@ int main() {
 	Sleep(1000);
 	textprintf_ex(screen, font, 100, 220, makecol(0, 200, 250), -1, "Control of Laura MK IV Sucessfully Transfered");
 	Sleep(2000);
-	
+	*/
 	Submarine laura('L');
 	
 
@@ -69,7 +78,6 @@ int main() {
 	
 	exit(EXIT_SUCCESS);
 }
-END_OF_MAIN();
 
 void update() {
 	//Perform program logic here	
@@ -77,5 +85,6 @@ void update() {
 
 void draw() {
 	//Perform all drawing here	
-	blit(buffer, screen, 0, 0, 0, 0, buffer->w, buffer->h);
+	clear_to_color(target_window->renderer, makecol(0, 0, 0));
+	SDL_RenderPresent(target_window->renderer);
 }
